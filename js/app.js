@@ -60,6 +60,47 @@ class App {
         } else {
             this.onUnauthenticated();
         }
+
+        // Initialize dynamic favicon
+        this.updateFavicon();
+        setInterval(() => this.updateFavicon(), 60000); // Update every minute
+    }
+
+    updateFavicon() {
+        const canvas = document.createElement('canvas');
+        canvas.width = 64;
+        canvas.height = 64;
+        const ctx = canvas.getContext('2d');
+
+        // Get 4 random colors from categories
+        const categories = Object.keys(TASTING_CATEGORIES);
+        const colors = [];
+        for (let i = 0; i < 4; i++) {
+            const randomCat = categories[Math.floor(Math.random() * categories.length)];
+            colors.push(TASTING_CATEGORIES[randomCat].color);
+        }
+
+        // Create radial gradient
+        const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+        gradient.addColorStop(0, colors[0]);
+        gradient.addColorStop(0.33, colors[1]);
+        gradient.addColorStop(0.66, colors[2]);
+        gradient.addColorStop(1, colors[3]);
+
+        // Draw circle
+        ctx.beginPath();
+        ctx.arc(32, 32, 32, 0, 2 * Math.PI);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+
+        // Update favicon link
+        let link = document.querySelector("link[rel~='icon']");
+        if (!link) {
+            link = document.createElement('link');
+            link.rel = 'icon';
+            document.head.appendChild(link);
+        }
+        link.href = canvas.toDataURL();
     }
 
     onUnauthenticated() {
