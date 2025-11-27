@@ -5,14 +5,14 @@ const TASTING_CATEGORIES = {
     'Chocolate/Caramel': { color: '#6F4E37', notes: ['Chocolate', 'Caramel', 'Toffee', 'Sugarcane', 'Simple Syrup', 'Panela', 'Brown Sugar', 'Agave', 'Sugar', 'Praline', 'Nougat', 'Molasses', 'Marzipan', 'Marshmallow', 'Maple Syrup', 'Honey', 'Fudge', 'Cola', 'Butterscotch', 'Butter', 'Bubble Gum', 'Wite Pepper', 'Burnt Sugar'] },
     'Sweet/Syrup': { color: '#FFB347', notes: ['Sweet', 'Vanilla', 'Toast', 'Smoky', 'Carbon', 'Meaty', 'Leathery'] },
     'Spice': { color: '#D2691E', notes: ['Spicy', 'Black Pepper', 'Peppercorn', 'Nutmeg', 'Licorice', 'Ginger', 'Cumin', 'Coriander', 'Clove', 'Cinnamon', 'Anise', 'Sundried Tomat', 'Soy Sauce'] },
-    'Berry': { color: '#89CFF0', notes: ['Berry', 'Strawberry', 'Red Currant', 'Raspberry', 'Cranberry', 'Blueberry', 'Blackberry', 'Black Currant'] },
+    'Berry': { color: '#9370DB', notes: ['Berry', 'Strawberry', 'Red Currant', 'Raspberry', 'Cranberry', 'Blueberry', 'Blackberry', 'Black Currant'] },
     'Stone/Pome Fruit': { color: '#FF6B6B', notes: ['Fruity', 'Stone Fruit', 'Star Fruit', 'Pineapple', 'Passion Fruit', 'Papaya', 'Mango', 'Lychee', 'Longan', 'Kiwi', 'Guava', 'Coconut', 'Banana', 'Tropical Fruit', 'Peach', 'Nectarine', 'Cherry', 'Black Cherry', 'Apricot', 'Pomegranate', 'Pear', 'Watermelon', 'Honeydew', 'Cantaloupe', 'Melon'] },
     'Citrus': { color: '#FFA500', notes: ['Citrus', 'Bright', 'Yuzu', 'Tangerine', 'Orange', 'Mandarin', 'Lime', 'Lemon', 'Grapefruit', 'Clementine', 'Blood Orange', 'Bergamot'] },
     'Tropical': { color: '#FFD700', notes: ['White Grape', 'Red Grape', 'Green Grape', 'Raisin', 'Prune', 'Golden Raisin', 'Dried Fig', 'Dried Date', 'Plum'] },
     'Grape/Wine': { color: '#8B5A8B', notes: ['Red Apple', 'Green Apple', 'Apple'] },
     'Floral': { color: '#DDA0DD', notes: ['Floral', 'Rosewater', 'Rose', 'Orange Blossom', 'Magnolia', 'Lemongrass', 'Lavender', 'Jasmine', 'Honeysuckle', 'Hibiscus'] },
     'Herbal/Fresh': { color: '#90C695', notes: ['Herbal', 'Sage', 'Mint', 'Dill'] },
-    'Funky/Fermented': { color: '#9370DB', notes: ['Funky', 'Fermented', 'Winey', 'Boozy'] }
+    'Funky/Fermented': { color: '#2E8B57', notes: ['Funky', 'Fermented', 'Winey', 'Boozy'] }
 };
 
 // Flatten all tasting notes for the selector
