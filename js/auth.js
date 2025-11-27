@@ -27,7 +27,10 @@ class Auth {
     async signUp(email, password) {
         const { data, error } = await supabaseClient.auth.signUp({
             email: email,
-            password: password
+            password: password,
+            options: {
+                emailRedirectTo: 'https://duncanmama.github.io/coffee-projekt/'
+            }
         });
 
         if (error) throw error;
