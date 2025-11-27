@@ -2,3 +2,12 @@ node_modules/
 .DS_Store
 *.log
 .vscode/
+
+# Sensitive data files
+*.csv
+*.xlsx
+*.xls
+
+# Backup files
+*.bak
+*_backup.*

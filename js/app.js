@@ -38,7 +38,49 @@ class App {
         this.editingId = null;
         this.deletingId = null;
         this.currentSort = 'date'; // Default sort
-        this.initUI();
+        this.init();
+    }
+
+    async init() {
+        // Initialize authentication
+        await window.auth.init();
+
+        // Listen for auth state changes
+        window.auth.onAuthStateChange = (user) => {
+            if (user) {
+                this.onAuthenticated();
+            } else {
+                this.onUnauthenticated();
+            }
+        };
+
+        // Check initial auth state
+        if (window.auth.isAuthenticated()) {
+            await this.onAuthenticated();
+        } else {
+            this.onUnauthenticated();
+        }
+    }
+
+    onUnauthenticated() {
+        // Show auth modal, hide app
+        document.getElementById('auth-modal').classList.add('open');
+        document.getElementById('app-container').style.display = 'none';
+    }
+
+    async onAuthenticated() {
+        // Hide auth modal, show app
+        document.getElementById('auth-modal').classList.remove('open');
+        document.getElementById('app-container').style.display = 'block';
+
+        // Update user indicator
+        const userEmail = window.auth.getUserEmail();
+        if (userEmail) {
+            document.getElementById('user-email').innerText = userEmail;
+        }
+
+        // Initialize app
+        await this.initUI();
     }
 
     async initUI() {
@@ -65,6 +107,15 @@ class App {
                     registration.unregister();
                 }
             }).catch(err => console.warn('SW cleanup failed:', err));
+        }
+    }
+
+    async logout() {
+        try {
+            await window.auth.signOut();
+        } catch (error) {
+            console.error('Logout error:', error);
+            alert('Failed to log out');
         }
     }
 

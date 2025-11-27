@@ -105,6 +105,7 @@ class DB {
         const { data, error } = await supabaseClient
             .from('coffees')
             .insert({
+                user_id: window.auth.getUserId(),
                 name: coffee.name,
                 roaster_id: coffee.roasterId,
                 origin_id: coffee.originId,
